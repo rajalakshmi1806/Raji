@@ -8,6 +8,7 @@ package week2.day1;
 	import org.openqa.selenium.chrome.ChromeDriver;
 	import org.openqa.selenium.chrome.ChromeOptions;
 	import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 import cucumber.api.java.en.Given;
 
@@ -16,16 +17,16 @@ import cucumber.api.java.en.Given;
 		
 		
 		//public static void main(String[] args) throws InterruptedException {
-		@Given("create lead")
+		//@Given("create lead")
+		@Test
 		public void name() {
 			
-
+/*
 		ChromeOptions op = new ChromeOptions();
-			op.setHeadless(false);
-			ChromeDriver driver = new ChromeDriver(op);
+			op.setHeadless(false);*/
+			ChromeDriver driver = new ChromeDriver();
 			driver.get("http://leaftaps.com/opentaps/");
-			driver.manage().timeouts().implicitlyWait
-			(30, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
 			//driver.manage().window().fullscreen();
 			driver.findElementById("username").sendKeys("DemoSalesManager", Keys.TAB);
@@ -37,7 +38,7 @@ import cucumber.api.java.en.Given;
 			driver.findElementByLinkText("CRM/SFA").click();
 			driver.findElementByLinkText("Create Lead").click();
 			
-			WebElement source = driver.findElementById("createLeadForm_marketingCampaignId");
+			WebElement source = driver.findElementById("createLeadForm_firstName");
 			Select dd = new Select(source);
 			//dd.selectByIndex(2);
 			//dd.selectByValue("LEAD_EMPLOYEE");
